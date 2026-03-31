@@ -1,0 +1,523 @@
+/*
+    BASIC PAGE STYLES
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: #0b1220;
+    background-color: #f3f7ff;
+}
+  
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+a {
+    color: #0f4aa3;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #ffd24d;
+    outline-offset: 2px;
+}
+
+
+/*
+    HEADER / NAV BAR
+*/
+
+header {
+    background-color: #0b2e59;
+    color: white;
+    padding: 1rem;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  
+    position: sticky; /* i was having trouble with the sticky nav and scrolling of images, 
+    so i asked AI to help point out what was causing the issue i was facing */
+    top: 0;
+    z-index: 1000;
+    /* keeps header above page content */
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.15rem, 4vw, 1.75rem);
+    /* lets heading scale a little depending on screen size */
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  
+    display: flex;
+    flex-wrap: wrap;
+    /* allows nav links to wrap if needed on smaller screens */
+    gap: 0.5rem;
+    justify-content: center;
+    /* centered nav works well for mobile-first layout */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px; 
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+nav a[aria-current="page"] {
+    background-color: rgba(255, 255, 255, 0.25); 
+}
+
+
+/*
+    ATHLETE CARD
+*/
+
+#athlete-21615274 {
+    background-color: white;
+    border: 2px solid #cfe0ff; 
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+#athlete-21615274 header {
+    display: block;
+    /* overrides the site header flex rules so this inner header behaves normally */
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    text-align: center;
+  
+    position: static;
+    top: auto;
+    z-index: auto;
+    /* resets sticky behavior so the athlete section does not act like the main header */
+}
+
+#athlete-21615274 header img {
+    display: block;
+    margin: 0 auto; 
+    border-radius: 12px;
+    border: 2px solid #cfe0ff;
+}
+
+#athlete-21615274 header h3 {
+    margin: 0.75rem 0 0.25rem;
+    font-size: 1.5rem;
+}
+
+#athlete-21615274 header p {
+    margin: 0;
+    color: #334155; 
+    font-weight: bold;
+}
+
+#athlete-21615274 section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #cfe0ff;
+}
+
+/* BIO */
+#athlete-21615274 section[aria-labelledby="bio-heading-21615274"] {
+    text-align: center;
+}
+  
+/* RECORDS */
+#athlete-21615274 section[aria-labelledby="records-heading-21615274"] {
+    text-align: center;
+}
+
+#athlete-21615274 dl { /* using dl because records are label/value pairs */
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+
+#athlete-21615274 dt,
+#athlete-21615274 dd {
+    margin: 0;
+}
+  
+  
+/* 
+   RACES FILTER STYLING
+*/
+
+#filters {
+    background-color: white;
+    border: 2px solid #cfe0ff; 
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    /* gives the filter area its own card-like section */
+}
+
+#filters legend {
+    font-weight: bold;
+    color: #0b2e59;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#filters fieldset {
+    border: none;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+#filters label {
+    margin-right: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#filters input[type="radio"] {
+    margin-right: 0.25rem;
+    accent-color: #0f4aa3;
+}
+
+#filters select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #94b6ff;
+    background-color: #f3f7ff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+#filters select:hover {
+    border-color: #0f4aa3;
+}
+
+#filters select:focus { /* keyboard-accessible focus style */
+    outline: 3px solid #ffd24d;
+    outline-offset: 2px;
+}  
+
+/*
+    RACE CARDS
+*/
+
+#race-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* one card per row by default for mobile */
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#race-cards article {
+    background-color: white;
+    border: 2px solid #cfe0ff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-sizing: border-box;
+     /* each race card is its own contained block */
+}
+
+.athlete-card {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    font: inherit;
+}
+
+.athlete-card img {
+    display: block;
+    margin: 0 auto 0.75rem auto;
+    width: 100%;
+    max-width: 220px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #cfe0ff;
+}
+
+.athlete-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #0b2e59;
+}
+
+.athlete-card p {
+    margin: 0;
+    color: #334155;
+    font-weight: bold;
+}
+
+#race-cards article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(11, 46, 89, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.athlete-card:focus-visible {
+    outline: 3px solid #ffd24d;
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+
+/* 
+    POPUP MODALS (Race cards + Gallery)
+*/
+
+dialog {
+    border: none;
+    border-radius: 14px;
+    padding: 1rem;
+    background-color: white;
+
+    width: fit-content;
+    max-width: 90vw;
+    /* keeps popup from getting too large on screen */
+    max-height: 90vh;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+dialog img {
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: auto;
+    height: auto;
+    max-width: 70vw;
+    max-height: 45vh;
+    object-fit: contain;
+    /* keeps full image visible inside popup */
+    border-radius: 10px;
+    border: 2px solid #cfe0ff;
+}
+
+dialog h3 {
+    margin-top: 0;
+    color: #0b2e59;
+}
+
+dialog p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+dialog a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #0f4aa3;
+    font-weight: bold;
+}
+
+dialog a:hover {
+    text-decoration: underline;
+}
+
+dialog button {
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #0b2e59;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+dialog button:hover {
+    background-color: #155aa8;
+}
+
+
+/* 
+    PHOTO GALLERY 
+*/
+
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    /* flex layout lets gallery images wrap like a collage */
+  }
+  
+  .gallery-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    /* removes default button styling around gallery images */
+  }
+  
+  .gallery-button img {
+    height: 180px;
+    width: auto;
+    border-radius: 10px;
+    border: 2px solid #cfe0ff;
+    object-fit: cover;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* images get a little motion/feedback when hovered */
+  }
+
+/* 
+    ACCESSIBILITY
+*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+      /* turns off motion for users who prefer less animation */
+    }
+}
+
+/* 
+    DARK MODE
+*/
+
+@media (prefers-color-scheme: dark) { /* i used https://css-tricks.com/dark-modes-with-css/ to help me figure out how to implement dark mode */
+    body {
+      background-color: #0b1220;
+      color: #f8fbff;
+    }
+  
+    #athlete-21615274,
+    #filters,
+    #race-cards article,
+    dialog {
+      background-color: #132033;
+      border-color: #35527d;
+    }
+  
+    #athlete-21615274 header {
+      color: #f8fbff;
+    }
+  
+    #athlete-21615274 header p,
+    .athlete-card p,
+    dialog p,
+    footer {
+      color: #d6e2f5;
+    }
+  
+    .athlete-card h3,
+    dialog h3,
+    #filters legend,
+    a {
+      color: #b8d3ff;
+    }
+  
+    nav a {
+      color: white;
+    }
+}
+
+/*
+    TABLET STYLES
+*/
+
+@media (min-width: 700px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1 {
+        text-align: left;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+    }
+
+    #filters select {
+        width: auto;
+        min-width: 260px;
+    }
+
+    #race-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-button img {
+        height: 220px;
+    }
+
+    dialog img {
+        max-height: 55vh;
+    }
+}
+
+/*
+    DESKTOP STYLES
+*/
+
+@media (min-width: 1000px) {
+    #race-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-button img {
+        height: 260px;
+    }
+
+    dialog img {
+        max-height: 60vh;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+}
+
+
+/*
+    FOOTER
+*/
+
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: #0b2e59;
+    color: #ffffff;
+}
+  

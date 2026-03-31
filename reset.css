@@ -1,0 +1,83 @@
+/* reset.css */
+
+/* make box sizing easier to work with (padding + border included in width) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default margins browsers add to stuff */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+}
+
+/* remove default padding + bullets from lists */
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* basic body defaults so layout behaves more predictably */
+body {
+  min-height: 100vh;              /* makes sure body fills the screen */
+  text-rendering: optimizeSpeed;  /* improves text rendering a bit */
+  line-height: 1.5;               /* consistent spacing */
+}
+
+/* make images + media responsive by default */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;       /* removes weird inline spacing */
+  max-width: 100%;      /* prevents overflow */
+}
+
+/* make form elements use the same font as the site */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* improve how links look when underlined */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* smoother scrolling when jumping to sections */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;   /* basically disables animations */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

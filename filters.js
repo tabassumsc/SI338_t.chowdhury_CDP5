@@ -29,7 +29,7 @@ function applyGradeAndSort(grade, sort) {
   const container = document.getElementById("race-cards");
   if (!container) return;
 
-  const cards = Array.from(container.querySelectorAll('article[aria-label="Race card"]'));
+  const cards = Array.from(container.querySelectorAll('article'));
 
   cards.forEach(card => {
     const cardGrade = card.dataset.grade;
